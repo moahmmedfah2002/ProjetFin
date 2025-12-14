@@ -1,0 +1,20 @@
+# Param Globales
+global:
+ scrape_interval: 15s # Frequency of scraping targets (default: 1m)
+ evaluation_interval: 15s # Frequency of rule evaluation (default: 1m)
+# Configuration de gestionnaire des alertes
+alerting:
+ alertmanagers:
+   - static_configs:
+       - targets: ["localhost:9093"] 
+# Rule files for alerts and recording rules
+rule_files:
+ - "alerts.yml" # Define alerting rules
+ - "recording_rules.yml" # Define recording rules
+# Congfiguration de scrapping
+scrape_configs:
+ - job_name: "prometheus" # Job name added as a label to metrics
+   static_configs:
+     - targets: ["localhost:9090"] # Prometheus server itself
+       labels:
+         app: "prometheus" # Custom label for the target
