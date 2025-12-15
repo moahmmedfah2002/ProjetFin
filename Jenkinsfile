@@ -15,7 +15,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/LinaAitIder/refactored-finance-app.git'
+                    url: 'https://github.com/moahmmedfah2002/ProjetFin.git'
             }
         }
 
