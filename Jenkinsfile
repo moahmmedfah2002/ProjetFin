@@ -8,6 +8,7 @@ pipeline {
     }
 
     environment {
+
         JAR_NAME = 'spaghetti-finance-1.0.0.jar'
     }
 
