@@ -56,10 +56,15 @@ pipeline {
 
             script {
                 try {
-                    emailext attachLog: true,
-                        subject: "Build ${currentBuild.result}: ${JOB_NAME} #${BUILD_NUMBER}",
-                        to: 'fahlaouimohammed@gmail.com',
-                        body: "Résultat du build : ${currentBuild.result}\nLien : ${env.BUILD_URL}"
+                    echo 'Tentative d\'envoi de mail...'
+
+                                    emailext body: """
+                                        <p>Statut du Build: <b>${currentBuild.result ?: 'SUCCESS'}</b></p>
+                                        <p>Lien: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                                    """,
+                                    subject: "Build Jenkins: ${env.JOB_NAME} - ${currentBuild.result ?: 'SUCCESS'}",
+                                    to: 'votre.email@gmail.com', // REMPLACEZ CECI PAR VOTRE EMAIL
+                                    mimeType: 'text/html'
                 } catch (Exception e) {
                     echo "L'envoi d'email a échoué (Probablement pas de config SMTP). Le build reste valide."
                 }
