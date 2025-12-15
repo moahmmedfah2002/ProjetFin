@@ -63,7 +63,7 @@ pipeline {
                                         <p>Lien: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
                                     """,
                                     subject: "Build Jenkins: ${env.JOB_NAME} - ${currentBuild.result ?: 'SUCCESS'}",
-                                    to: 'votre.email@gmail.com', // REMPLACEZ CECI PAR VOTRE EMAIL
+                                    to: 'fahlaouimohammed@gmail.com', // REMPLACEZ CECI PAR VOTRE EMAIL
                                     mimeType: 'text/html'
                 } catch (Exception e) {
                     echo "L'envoi d'email a échoué (Probablement pas de config SMTP). Le build reste valide."
