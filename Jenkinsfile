@@ -20,10 +20,13 @@ pipeline {
             }
         }
 
-        stage('Clean & Compile') {
-            steps {
-                bat 'mvn clean compile'
-            }
+       stage('Clean & Compile') {
+                   steps {
+                       // Add this line to see the version in the logs
+                       bat 'java -version'
+                       bat 'mvn clean compile'
+                   }
+               }
         }
 
         stage('Unit Tests') {
