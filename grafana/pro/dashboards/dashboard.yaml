@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  - name: 'Finance App Dashboards'
+    orgId: 1
+    folder: ''
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    options:
+      # C'est le chemin INTERNE au conteneur Docker où nous allons monter vos fichiers JSON
+      path: /etc/grafana/provisioning/dashboards

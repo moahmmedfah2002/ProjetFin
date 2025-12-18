@@ -1,0 +1,11 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    # Si vous utilisez Docker Compose, mettez le nom du service (ex: http://prometheus:9090)
+    # Si Prometheus tourne sur votre Windows, utilisez http://host.docker.internal:9090
+    url: http://prometheus:9090
+    isDefault: true
+    editable: true
